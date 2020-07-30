@@ -13,7 +13,6 @@
                 <p class="card-text">
                     gcp dev ops
                 </p>
-                <a href="https://github.com/DarkaOnLine/L5-Swagger" class="card-link">swagger github</a>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -26,6 +25,7 @@
                 <p class="card-text">darkaonline/l5-swagger rest api document ui</p>
                 <a href="https://swagger.io/" class="card-link">swagger</a>
                 <a href="https://github.com/DarkaOnLine/L5-Swagger" class="card-link">swagger github</a>
+                <a href="https://github.com/zircote/swagger-php/tree/master/Examples/petstore-3.0r" class="card-link">swagger example</a>
                 <a href="/api/document"" class="card-link">trip api document</a>
             </div>
         </div>

@@ -8,12 +8,21 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
-{
+{ 
+    /**
+     * @OA\Tag(
+     *     name="USER",
+     *     description="API Endpoints of user"
+     * ) 
+     */
+    public function index() { }
+
     /**
      * @OA\Post(
      *      path="/register",
      *      tags={"USER"},
-     *      summary="REGISTER NEW USER",
+     *      summary="새로운 유저 생성",
+     *      description="회원 가입을 위한 API 입니다. 사용자 아이디, 이름, 암호, 암호 확인을 입력해야 합니다.",
      *      operationId="register",
      *      @OA\Parameter(
      *          name="name",
@@ -48,16 +57,20 @@ class AuthController extends Controller
      *          )
      *      ),
      *      @OA\Response(
-     *          response=200,
-     *          description="Success"
+     *          response=201,
+     *          description="유저 생성"
+     *      ),
+     *      @OA\Response(
+     *          response=500,
+     *          description="HTTP_INTERNAL_SERVER_ERROR"
      *      )
      * )
      *
      * Register new user.
      *
      * @param Request $request
-     * @return void
-    */
+     * @return json
+     */
     public function register(Request $request) {
         
         $request->validate([
@@ -74,9 +87,49 @@ class AuthController extends Controller
 
         return response()->json([
             'user' => $user,
-        ], 201);
+        ], Response::HTTP_ACCEPTED);
     }
 
+    /**
+     * @OA\Post(
+     *      path="/login",
+     *      tags={"USER"},
+     *      summary="새로운 유저 생성",
+     *      description="회원 로그인 위한 API 입니다. 사용자 아이디, 암호를 입력해야 합니다.",
+     *      operationId="login",
+     *      @OA\Parameter(
+     *          name="email",
+     *          in="query",
+     *          required=true,
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Parameter(
+     *          name="password",
+     *          in="query",
+     *          required=true,
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=201,
+     *          description="유저 토큰 생성"
+     *      ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="HTTP_UNPROCESSABLE_ENTITY"
+     *      ),
+     *      @OA\Response(
+     *          response=500,
+     *          description="HTTP_INTERNAL_SERVER_ERROR"
+     *      )
+     * )
+     *
+     * @param Request $request
+     * @return json
+     */
     public function login(Request $request) {
         
         $validated = $request->validate([
@@ -95,10 +148,25 @@ class AuthController extends Controller
         return response()->json([
             'token' => $user->createToken('Personal Access Token')->plainTextToken,
             'user' => $user,
-        ], Response::HTTP_OK);
+        ], Response::HTTP_CREATED);
 
     }
-
+    
+    /**
+     * @OA\Get(
+     *      path="/logout",
+     *      tags={"USER"},
+     *      summary="유저 로그아웃",
+     *      description="회원 로그인 아웃을 위한 API 입니다. 토큰 만료",
+     *      operationId="logout",
+     *      @OA\Response(
+     *          response=500,
+     *          description="HTTP_INTERNAL_SERVER_ERROR"
+     *      )
+     * )
+     *
+     * @return json
+     */
     public function logout() {
 
         $user = request()->user();

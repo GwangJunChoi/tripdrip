@@ -8,7 +8,19 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
 /**
- * @OA\Info(title="tripndrip API", version="0.1")
+ * @OA\Info(
+ *      version="1.0.0",
+ *      title="private project Api Documentation",
+ *      description="L5 Swagger OpenApi description",
+ *      @OA\Contact(
+ *          email="namsookill@gmail.com"
+ *      ),
+ * )
+ *
+ * @OA\Server(
+ *      url=L5_SWAGGER_CONST_HOST,
+ *      description="Demo API Server"
+ * )
  */
 class Controller extends BaseController
 {
