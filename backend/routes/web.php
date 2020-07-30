@@ -17,12 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/backend', function () {
-    return view('backend');
+Route::get('/back', function () {
+    return view('back');
 });
 
-Route::get('/frontend', function () {
-    return view('frontend');
+Route::get('/front', function () {
+    return view('front');
 });
 
 

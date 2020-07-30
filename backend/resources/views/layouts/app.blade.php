@@ -43,8 +43,8 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/api/documentation">Api Document</a>
-                                <a class="dropdown-item" href="/backend">backend</a>
-                                <a class="dropdown-item" href="/frontend">frontend</a>
+                                <a class="dropdown-item" href="/back">backend</a>
+                                <a class="dropdown-item" href="/front">frontend</a>
                                 <a class="dropdown-item" href="https://github.com/GwangJunChoi">github</a>
                             </div>
                         </li>

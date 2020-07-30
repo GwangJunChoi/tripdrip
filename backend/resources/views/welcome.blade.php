@@ -36,7 +36,7 @@
                     <span class="badge badge-pill badge-dark">sanctum</span>
                     <span class="badge badge-pill badge-dark">swagger</span>
                 </p>
-                <a href="/backend" class="card-link">backend</a>
+                <a href="/back" class="card-link">backend</a>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
@@ -48,7 +48,7 @@
                 <p class="card-text">
                     <span class="badge badge-pill badge-dark">vuejs</span>
                 </p>
-                <a href="/frontend" class="card-light">frontend</a>
+                <a href="/front" class="card-light">frontend</a>
                 <a href="https://tripndrip.com" class="card-link">tripndrip.com</a>
             </div>
         </div>

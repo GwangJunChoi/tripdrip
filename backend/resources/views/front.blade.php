@@ -14,7 +14,6 @@
                 <p class="card-text">
                     vuejs 기반 frontend 
                 </p>
-                <a href="https://github.com/DarkaOnLine/L5-Swagger" class="card-link">swagger github</a>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
