@@ -10,7 +10,7 @@
     },
     "servers": [
         {
-            "url": "http://api.dripntrip.test/",
+            "url": "http://api.dripntrip.com/",
             "description": "Demo API Server"
         }
     ],
