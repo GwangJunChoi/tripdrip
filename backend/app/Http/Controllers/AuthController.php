@@ -57,7 +57,7 @@ class AuthController extends Controller
      *          )
      *      ),
      *      @OA\Response(
-     *          response=201,
+     *          response=200,
      *          description="유저 생성"
      *      ),
      *      @OA\Response(
@@ -87,7 +87,7 @@ class AuthController extends Controller
 
         return response()->json([
             'user' => $user,
-        ], Response::HTTP_ACCEPTED);
+        ], Response::HTTP_CREATED);
     }
 
     /**
@@ -114,8 +114,8 @@ class AuthController extends Controller
      *          )
      *      ),
      *      @OA\Response(
-     *          response=201,
-     *          description="유저 토큰 생성"
+     *          response=200,
+     *          description="유저 로그인 토큰 발급"
      *      ),
      *      @OA\Response(
      *          response=422,
@@ -148,7 +148,7 @@ class AuthController extends Controller
         return response()->json([
             'token' => $user->createToken('Personal Access Token')->plainTextToken,
             'user' => $user,
-        ], Response::HTTP_CREATED);
+        ], Response::HTTP_OK);
 
     }
     
