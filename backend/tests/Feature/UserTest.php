@@ -66,7 +66,7 @@ class AuthTest extends TestCase
     /** @test */
     public function a_user_can_log_out() {
         $this->withoutExceptionHandling();  
-          $user = factory(User::class)->create([
+        $user = factory(User::class)->create([
             'password' => Hash::make($this->password)
         ]);
 
