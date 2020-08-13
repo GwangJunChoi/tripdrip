@@ -10,19 +10,19 @@
     },
     "servers": [
         {
-            "url": "http://api.dripntrip.com/",
+            "url": "http://api.dripntrip.test/api",
             "description": "Demo API Server"
         }
     ],
     "paths": {
-        "/register": {
+        "/user": {
             "post": {
                 "tags": [
                     "USER"
                 ],
                 "summary": "새로운 유저 생성",
                 "description": "회원 가입을 위한 API 입니다. 사용자 아이디, 이름, 암호, 암호 확인을 입력해야 합니다.",
-                "operationId": "register",
+                "operationId": "user",
                 "parameters": [
                     {
                         "name": "name",
@@ -58,7 +58,7 @@
                     }
                 ],
                 "responses": {
-                    "201": {
+                    "200": {
                         "description": "유저 생성"
                     },
                     "500": {
@@ -94,8 +94,8 @@
                     }
                 ],
                 "responses": {
-                    "201": {
-                        "description": "유저 토큰 생성"
+                    "200": {
+                        "description": "유저 로그인 토큰 발급"
                     },
                     "422": {
                         "description": "HTTP_UNPROCESSABLE_ENTITY"
@@ -118,13 +118,27 @@
                     "500": {
                         "description": "HTTP_INTERNAL_SERVER_ERROR"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
             }
         }
     },
     "components": {
         "schemas": {
             "User": {}
+        },
+        "securitySchemes": {
+            "bearer": {
+                "type": "http",
+                "description": "Authorization token obtained from logging in.",
+                "name": "Authorization",
+                "in": "header",
+                "scheme": "bearer"
+            }
         }
     },
     "tags": [

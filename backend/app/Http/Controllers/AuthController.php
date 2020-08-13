@@ -19,11 +19,11 @@ class AuthController extends Controller
 
     /**
      * @OA\Post(
-     *      path="/register",
+     *      path="/user",
      *      tags={"USER"},
      *      summary="새로운 유저 생성",
      *      description="회원 가입을 위한 API 입니다. 사용자 아이디, 이름, 암호, 암호 확인을 입력해야 합니다.",
-     *      operationId="register",
+     *      operationId="user",
      *      @OA\Parameter(
      *          name="name",
      *          in="query",
@@ -162,7 +162,8 @@ class AuthController extends Controller
      *      @OA\Response(
      *          response=500,
      *          description="HTTP_INTERNAL_SERVER_ERROR"
-     *      )
+     *      ),
+     *      security={ {"bearer": {}} },
      * )
      *
      * @return json
