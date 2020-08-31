@@ -46,10 +46,12 @@
                     frontend
                 </h6>
                 <p class="card-text">
+                    <span class="badge badge-pill badge-dark">quasar</span>
                     <span class="badge badge-pill badge-dark">vuejs</span>
                 </p>
                 <a href="/front" class="card-light">frontend</a>
                 <a href="https://tripndrip.com" class="card-link">tripndrip.com</a>
+                <a href="https://tripndrip.com" class="card-link">https://quasar.dev</a>
             </div>
         </div>
     </div>
