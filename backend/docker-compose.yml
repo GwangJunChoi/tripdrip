@@ -4,7 +4,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./docker/php/Dockerfile
 
     container_name: app
     restart: unless-stopped
@@ -19,13 +19,13 @@ services:
       - app-network
   # NGINX - Service
   webserver:
-    image: nginx:alpine
+    image: nginx
     container_name: webserver
     restart: unless-stopped
     tty: true
 
     ports:
-      - "8100:80"
+      - "8080:80"
       - "8143:443"
 
     volumes:
