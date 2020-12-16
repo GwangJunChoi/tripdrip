@@ -5,14 +5,14 @@
         q-btn(flat color="white" label="두번 쓰고")
         q-btn(flat color="white" label="세번 쓰고")
     .sub-title
-      .example 아시겠죠?
+      .example 로그인입니다.
     
     
 </template>
 
 <script>
 export default {
-  name: 'PageIndex'
+  name: 'LoginPage'
 }
 </script>
 
