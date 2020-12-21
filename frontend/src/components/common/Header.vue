@@ -4,7 +4,7 @@
       q-toolbar
         q-btn(dense flat round icon="menu" @click="left = !left")
         q-toolbar-title
-          router-link(to="/")
+          router-link(to="/" class="float-right")
             q-avatar 
               img(src="/icons/favicon-96x96.png")
             span  tripdrip

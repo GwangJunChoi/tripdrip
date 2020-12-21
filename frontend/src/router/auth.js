@@ -10,7 +10,7 @@ const AuthRoutes = [
       { 
         path: '/signup', 
         component: () => import('pages/auth/Signup.vue') 
-      }
+      }       
     ]
   },
 ];
