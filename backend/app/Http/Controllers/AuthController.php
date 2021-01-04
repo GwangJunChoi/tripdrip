@@ -3,17 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
-{ 
+{
     /**
      * @OA\Tag(
      *     name="USER",
      *     description="API Endpoints of user"
-     * ) 
+     * )
      */
     public function index() { }
 
@@ -72,7 +72,7 @@ class AuthController extends Controller
      * @return json
      */
     public function register(Request $request) {
-        
+
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users,email',
@@ -131,13 +131,14 @@ class AuthController extends Controller
      * @return json
      */
     public function login(Request $request) {
-        
+
         $validated = $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
-        
+
         if (!\Auth::attempt($validated)) {
+            print_r($request);
             return response()->json([
                 'message' => 'Incorrect Email or Password'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
@@ -151,7 +152,7 @@ class AuthController extends Controller
         ], Response::HTTP_OK);
 
     }
-    
+
     /**
      * @OA\Get(
      *      path="/logout",
