@@ -15,4 +15,9 @@ yarn-error.log
 composer.lock
 package-lock.json
 
+#l5-swagger:generate
+/storage/api-docs
+/resources/views/vendor/
+
+
 .idea
