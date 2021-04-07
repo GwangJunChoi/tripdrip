@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
-use App\User;
+use App\Models\User;
 
 class AuthTest extends TestCase
 {
@@ -17,7 +17,7 @@ class AuthTest extends TestCase
     private string $password = 'test';
 
     //vendor/bin/phpunit --filter a_user_can_be_registered or vendor/bin/phpunit
-    /** 
+    /**
      * @test
     */
     public function a_user_can_be_registered()
@@ -40,16 +40,16 @@ class AuthTest extends TestCase
         ]);
     }
 
-    /** 
+    /**
      * @test
     */
-    public function a_user_can_log_in() {
+    public function a_user_can_authenticated() {
 
-        $user = factory(User::class)->create([
+        $user = User::factory()->make([
             'password' => Hash::make($this->password)
         ]);
 
-        $response = $this->post('/api/login', [
+        $response = $this->post('/api/authenticate', [
             'email' => $user->email,
             'password' => $this->password
         ]);
@@ -65,8 +65,8 @@ class AuthTest extends TestCase
 
     /** @test */
     public function a_user_can_log_out() {
-        $this->withoutExceptionHandling();  
-        $user = factory(User::class)->create([
+        $this->withoutExceptionHandling();
+        $user = User::factory()->make([
             'password' => Hash::make($this->password)
         ]);
 

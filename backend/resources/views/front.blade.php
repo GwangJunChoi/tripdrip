@@ -12,21 +12,20 @@
                     <span class="badge badge-pill badge-secondary">ing</span>
                 </h6>
                 <p class="card-text">
-                    vuejs 기반 frontend 
+                    <a href="https://vuejs.org" class="card-link">vuejs</a>
                 </p>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">ui framework</h5>
+                <h5 class="card-title">quasar framework</h5>
                 <h6 class="card-subtitle mb-2 text-muted">
                     <span class="badge badge-pill badge-primary">todo</span>
                     <span class="badge badge-pill badge-secondary">ing</span>
                 </h6>
                 <p class="card-text">
-                    bootstrap-vue
+                    <a href="https://quasar.dev" class="card-link">quasar</a>
                 </p>
-                <a href="https://bootstrap-vue.org/docs" class="card-link">bootstrap-vue</a>
             </div>
         </div>
     </div>
