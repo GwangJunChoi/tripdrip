@@ -7,7 +7,6 @@
     .sub-title
       .example 아시겠죠?
     
-    
 </template>
 
 <script>

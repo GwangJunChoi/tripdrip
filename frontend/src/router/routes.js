@@ -12,6 +12,10 @@ const routes = [
       { path: '', component: () => import('pages/Main.vue') }
     ]
   },
+  {
+    path: '/chat',
+    component: () => import('layouts/ChatLayout.vue'),
+  },
   ...AuthRoutes,
 ];
 //routes.push(AuthRoutes);

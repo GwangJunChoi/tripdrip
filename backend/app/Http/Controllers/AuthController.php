@@ -7,6 +7,8 @@ use App\Models\User;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 
+
+
 class AuthController extends Controller
 {
     /**
@@ -92,7 +94,7 @@ class AuthController extends Controller
 
     /**
      * @OA\Post(
-     *      path="/login",
+     *      path="/authenticate",
      *      tags={"USER"},
      *      summary="새로운 유저 생성",
      *      description="회원 로그인 위한 API 입니다. 사용자 아이디, 암호를 입력해야 합니다.",
@@ -130,15 +132,15 @@ class AuthController extends Controller
      * @param Request $request
      * @return json
      */
-    public function login(Request $request) {
+    public function authenticate(Request $request) {
 
         $validated = $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string',
         ]);
+        
 
         if (!\Auth::attempt($validated)) {
-            print_r($request);
             return response()->json([
                 'message' => 'Incorrect Email or Password'
             ], Response::HTTP_UNPROCESSABLE_ENTITY);
